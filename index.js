@@ -85,4 +85,4 @@ function clickControl(event) {
   }
 }
 
-document.addEventListener("touchStart", clickControl);
+document.addEventListener("click", clickControl);
