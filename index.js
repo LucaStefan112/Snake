@@ -65,3 +65,24 @@ function show() {
   food.show();
   snake.show();
 }
+
+function clickControl(event) {
+  const mapPrecision = 1000;
+  let y = floor(event.clientY * mapPrecision / window.innerHeight);
+  let x = floor(event.clientX * mapPrecision / window.innerWidth);
+
+  if(x <= y && x + y < mapPrecision + 1){
+    snake.xdir = -1; snake.ydir = 0;
+  }
+  else if(x <= y && x + y >= mapPrecision + 1){
+    snake.xdir = 0; snake.ydir = 1;
+  }
+  else if(x > y && x + y < mapPrecision + 1){
+    snake.xdir = 0; snake.ydir = -1;
+  }
+  else{
+    snake.xdir = 1; snake.ydir = 0;
+  }
+}
+
+document.addEventListener("touchStart", clickControl);
